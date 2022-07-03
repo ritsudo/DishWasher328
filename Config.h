@@ -2,6 +2,9 @@
 #define CONFIG_H_
 
 /*--------------------------------------------------------------------*/
+#define MACHINE_NAME "Hansa ZIM"
+
+/*--------------------------------------------------------------------*/
 
 #define DDR_OUT DDRD	//DEFINE OUTPUT PORT AS D - указать шину дл€ выходного порта (у нас порт D)
 #define PORT_OUT PORTD	//DEFINE OUTPUT PORT AS D - указать шину дл€ выходного порта (у нас порт D)
@@ -31,17 +34,6 @@
 #define IN_ISB -1		//INPUT FOR DOOR WASHER SWITCH - вход измерител€ ополаскивател€ в двери TODO define
 #define IN_DOOR -1		//INPUT FOR DOOR OPEN SWITCH - вход дл€ датчика двери TODO define
 
-/*--------------------------------------------------------------------*/
-
-#define DDR_LCD DDRB	//DEFINE OUTPUT PORT AS D - указать шину дл€ выходн. LCD (у нас порт B). Ќазвани€ пинов соотв. LCD1602
-#define PORT_LCD PORTB	//DEFINE OUTPUT PORT AS D - указать шину дл€ выходн. LCD (у нас порт B). Ќазвани€ пинов соотв. LCD1602
-
-#define LCD_RS 0
-#define LCD_E 1
-#define LCD_D4 2
-#define LCD_D5 3
-#define LCD_D6 4
-#define LCD_D7 5
 
 /*--------------------------------------------------------------------*/
 
