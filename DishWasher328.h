@@ -3,6 +3,8 @@
 
 #include "Substitutions.h"
 #include "LCD/lcd1602.h"
+#include "Timer/CountdownTimer.h"
+#include "Programs/MainCycle.h"
 
 #define F_CPU 6000000
 

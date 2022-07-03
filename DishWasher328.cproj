@@ -111,12 +111,26 @@
     <Compile Include="LCD\lcd1602.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Programs\MainCycle.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Programs\MainCycle.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Substitutions.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Timer\CountdownTimer.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Timer\CountdownTimer.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="LCD" />
+    <Folder Include="Programs" />
+    <Folder Include="Timer" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>

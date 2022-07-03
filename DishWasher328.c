@@ -10,24 +10,11 @@ int main(void)
 	
 	LCD_init();
 	lcdLog(MACHINE_NAME);
+	TimerStart(10);
 	
-//	lcdLog("1234567890abcdef");
 	//EXAMPLE MINI PROGRAM USING DELAYS
-	
-/*	DDR_OUT = 0xFF;
-	INLET_ENABLE;
-	for (uint8_t i=0; i<127; i++) _delay_ms(100);
-	INLET_DISABLE;
-	PUMPH_ENABLE;
-	for (uint8_t i=0; i<255; i++) _delay_ms(100);
-	PUMPH_DISABLE;
-	DRAIN_ENABLE;
-	for (uint8_t i=0; i<127; i++) _delay_ms(100);
-	DRAIN_DISABLE;
-
-*/
-	
-	
+	DDR_OUT = 0xFF;
+	StartWashing();
 	
     while(1)
     {	
