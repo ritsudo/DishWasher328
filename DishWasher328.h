@@ -11,6 +11,6 @@
 #include <avr/io.h>
 #include <util/delay.h>
 
-
+void initialize();
 
 #endif /* DISHWASHER328_H_ */

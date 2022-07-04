@@ -2,7 +2,7 @@
 #define CONFIG_H_
 
 /*--------------------------------------------------------------------*/
-#define MACHINE_NAME "Hansa ZIM"
+#define MACHINE_NAME "Hansa / welcome"
 
 /*--------------------------------------------------------------------*/
 
@@ -23,13 +23,13 @@
 #define PORT_IN PORTC	//DEFINE INPUT PORT AS C - указать шину для входного порта (у нас порт C)
 #define PIN_IN PINC		//DEFINE INPUT PORT AS C - указать шину для входного порта (у нас порт C)
 
-#define IN_RS 0			//INPUT FOR THERMORESISTOR - вход терморезистора (АЦП)
-#define IN_FM 1			//INPUT FOR FLUID METER - вход измерителя уровня жидкости
-#define IN_IAQS 2		//INPUT FOR AQUASTOP - вход переключателя аквастопа (защиты)
-#define IN_ISS 3		//INPUT FOR SALT METER - вход измерителя уровня соли
+#define IN_RS 2			//INPUT FOR THERMORESISTOR - вход терморезистора (АЦП)
+#define IN_FM 3			//INPUT FOR FLUID METER - вход измерителя уровня жидкости
+#define IN_IAQS 4		//INPUT FOR AQUASTOP - вход переключателя аквастопа (защиты)
+#define IN_ISS 5		//INPUT FOR SALT METER - вход измерителя уровня соли
 
-#define BTN_POWER 4		//BUTTON INPUT 1 - вход кнопки 1
-#define BTN_CANCEL 5	//BUTTON INPUT 2 - вход кнопки 2
+#define BTN_POWER 0		//BUTTON INPUT 1 - вход кнопки 1
+#define BTN_CANCEL 1	//BUTTON INPUT 2 - вход кнопки 2
 
 #define IN_ISB -1		//INPUT FOR DOOR WASHER SWITCH - вход измерителя ополаскивателя в двери TODO define
 #define IN_DOOR -1		//INPUT FOR DOOR OPEN SWITCH - вход для датчика двери TODO define

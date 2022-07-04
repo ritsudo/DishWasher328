@@ -3,8 +3,10 @@
 void DoWashing(unsigned int step) {
 	switch(step) {
 		case 0: 		//PHASE 0
-			INLET_ENABLE;
 			lcdLog("3AJIBKA");
+			_delay_ms(200);
+			_delay_ms(200);
+			INLET_ENABLE;
 			TimerInit(3, 1); //INIT TIME WITH 60 SECONDS, NEXT PHASE IS 1
 			break;
 		case 1:
