@@ -7,16 +7,23 @@
 
 int main(void)
 {
-	
-	LCD_init();
-	lcdLog(MACHINE_NAME);
-	TimerStart(10);
-	
-	//EXAMPLE MINI PROGRAM USING DELAYS
+	unsigned char running = 0;
+	//MAIN PREINIT
 	DDR_OUT = 0xFF;
-	StartWashing();
+	LCD_init();
+	TimerISRInit();
+	lcdLog(MACHINE_NAME);
+	
+//	TimerStart(600, 0);
 	
     while(1)
     {	
+		if (running == 1) {
+			
+		}
+		else {
+			running = 1;
+			DoWashing(0);	
+		}
     }
 }

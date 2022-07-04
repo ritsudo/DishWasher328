@@ -12,6 +12,6 @@
 #include "../DishWasher328.h"
 #include "../Substitutions.h"
 
-void StartWashing();
+void DoWashing(unsigned int step);
 
 #endif /* MAINCYCLE_H_ */
