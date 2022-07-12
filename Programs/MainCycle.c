@@ -7,19 +7,19 @@ void DoWashing(unsigned int step) {
 			_delay_ms(200);
 			_delay_ms(200);
 			INLET_ENABLE;
-			TimerInit(3, 1); //INIT TIME WITH 60 SECONDS, NEXT PHASE IS 1
+			TimerInit(30, 1); //INIT TIME WITH 60 SECONDS, NEXT PHASE IS 1
 			break;
 		case 1:
 			INLET_DISABLE;
 			PUMPH_ENABLE;
 			lcdLog("HACOC PABOTAET");
-			TimerInit(3, 2);
+			TimerInit(60, 2);
 			break;
 		case 2:
 			PUMPH_DISABLE;
 			DRAIN_ENABLE;
 			lcdLog("IDET SLIV");
-			TimerInit(3, 3);
+			TimerInit(30, 3);
 			break;
 		case 3:
 			DRAIN_DISABLE;

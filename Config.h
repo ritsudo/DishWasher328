@@ -36,5 +36,23 @@
 
 
 /*--------------------------------------------------------------------*/
+#define BTN_POWER_ACTIVE_STATE 0 //0 is button port active state
+#define AQS_ACTIVE_STATE 0 //0 is aqs port active state
+#define FM_ACTIVE_STATE 0
+#define ISS_ACTIVE_STATE 0
+#define ISB_ACTIVE_STATE 0
+#define DOOR_ACTIVE_STATE 0
+
+
+/*--------------------------------------------------------------------*/
+
+#define BTN_POWER_ACTIVE (PIN_IN>>BTN_POWER&0x01)==BTN_POWER_ACTIVE_STATE //Define POWER KEY is pressed (when set to 0)
+#define AQS_TRIGGERED (PIN_IN>>IN_IAQS&0x01)==AQS_ACTIVE_STATE
+#define FM_FILLED (PIN_IN>>IN_FM&0x01)==FM_ACTIVE_STATE //Define IAQS is triggered (when set to 0)
+#define ISS_FILLED (PIN_IN>>IN_ISS&0x01)==ISS_ACTIVE_STATE //Define IAQS is triggered (when set to 0)
+
+//#define HATCH_OPENED
+
+/*--------------------------------------------------------------------*/
 
 #endif /* CONFIG_H_ */

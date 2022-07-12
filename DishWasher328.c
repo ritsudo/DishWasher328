@@ -5,6 +5,8 @@
 
 #include "DishWasher328.h"
 
+unsigned char running = 0; //CURRENT MACHINE STATE 0 - STOPPED; 1 - RUNNING
+
 void initialize() {
 	DDR_OUT = 0xFF;
 	DDR_IN = 0x00;
@@ -12,6 +14,16 @@ void initialize() {
 	LCD_init();
 	TimerISRInit();
 	lcdLog(MACHINE_NAME);
+}
+
+void procedureStop() {
+	TimerPause();
+	PORT_OUT = 0x00;
+	lcdLog("STOP by user");
+	if (AQS_TRIGGERED) lcdLog("AQS TRIGGERED");
+	//if (HATCH_OPENED) lcdLog("DOOR IS OPENED");
+	running = 0;
+	_delay_ms(100); //100 ms delay to avoid reclick
 }
 
 void debugInputLog() {
@@ -28,7 +40,6 @@ void debugInputLog() {
 
 int main(void)
 {
-	unsigned char running = 0;
 	//MAIN PREINIT
 
 	initialize();
@@ -38,12 +49,15 @@ int main(void)
 //		debugInputLog();
 		
  		if (running == 1) {
- 			
+ 			if (BTN_POWER_ACTIVE || AQS_TRIGGERED) {
+				 procedureStop();
+			 }
  		}
 		 
  		else {
-			 if ((PIN_IN>>BTN_POWER & 0x01) == 0) {
-				 running = 1;
+			 if (BTN_POWER_ACTIVE) {
+				if (running == 0) running = 1;
+				 _delay_ms(50); //50ms delay to avoid reclick
 				 DoWashing(0);
 			 }
  		}
