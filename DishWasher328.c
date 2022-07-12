@@ -16,6 +16,10 @@ void initialize() {
 	lcdLog(MACHINE_NAME);
 }
 
+void errorNoSalt() {
+	lcdLog("WARN: LOW SALT");
+}
+
 void procedureStop() {
 	TimerPause();
 	PORT_OUT = 0x00;
@@ -23,7 +27,7 @@ void procedureStop() {
 	if (AQS_TRIGGERED) lcdLog("AQS TRIGGERED");
 	//if (HATCH_OPENED) lcdLog("DOOR IS OPENED");
 	running = 0;
-	_delay_ms(100); //100 ms delay to avoid reclick
+	_delay_ms(200); //200 ms delay to avoid reclick
 }
 
 void debugInputLog() {
@@ -43,6 +47,7 @@ int main(void)
 	//MAIN PREINIT
 
 	initialize();
+	if (ISS_EMPTY) errorNoSalt();
 	
     while(1)
     {	
