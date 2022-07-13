@@ -9,8 +9,11 @@
 #ifndef THERMALCHECK_H_
 #define THERMALCHECK_H_
 
-void initThermometer();
-void CheckTemperature();
+#include <avr/io.h>
+#include "../DishWasher328.h"
+
+void InitThermometer();
+unsigned int CheckTemperature();
 
 
 #endif /* THERMALCHECK_H_ */

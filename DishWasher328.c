@@ -18,6 +18,7 @@ int main(void)
     while(1)
     {	
 //		debugInputLog();
+//		debugADC();
 		
  		if (running == 1) {
  			if (BTN_POWER_ACTIVE || AQS_TRIGGERED) {

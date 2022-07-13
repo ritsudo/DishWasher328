@@ -16,7 +16,7 @@ void errorNoSalt();
 void procedureStop();
 void debugInputLog();
 void clearOutputPort();
-
+void debugADC();
 
 
 #endif /* MACHINERY_H_ */

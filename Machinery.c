@@ -13,6 +13,7 @@ void initialize() {
 	PORT_IN = 0x00;
 	LCD_init();
 	TimerISRInit();
+	InitThermometer();
 	lcdLog(MACHINE_NAME);
 }
 
@@ -45,3 +46,13 @@ void debugInputLog() {
 	_delay_ms(200);
 }
 
+void debugADC() {
+	int adcValue = CheckTemperature();
+	char adcVal[] = "0000";
+	adcVal[0] =     adcValue/1000+0x30;
+	adcVal[1] =   (adcValue%1000)/100+0x30;
+	adcVal[2] =   (adcValue%100)/10+0x30;
+	adcVal[3] =   adcValue%10+0x30;
+	lcdLog(adcVal);
+	_delay_ms(50);
+}
