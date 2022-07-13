@@ -5,6 +5,8 @@
 #include "LCD/lcd1602.h"
 #include "Timer/CountdownTimer.h"
 #include "Programs/MainCycle.h"
+#include "Thermo/ThermalCheck.h"
+#include "Machinery.h"
 
 #define F_CPU 6000000
 

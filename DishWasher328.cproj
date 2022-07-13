@@ -111,6 +111,12 @@
     <Compile Include="LCD\lcd1602.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Machinery.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Machinery.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Programs\MainCycle.c">
       <SubType>compile</SubType>
     </Compile>
@@ -118,6 +124,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Substitutions.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Thermo\ThermalCheck.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Thermo\ThermalCheck.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Timer\CountdownTimer.c">
@@ -129,6 +141,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="LCD" />
+    <Folder Include="Thermo" />
     <Folder Include="Programs" />
     <Folder Include="Timer" />
   </ItemGroup>

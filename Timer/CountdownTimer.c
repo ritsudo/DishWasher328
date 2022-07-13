@@ -9,9 +9,9 @@ unsigned int CurrentPhase = 0; //текущая фаза программы
 
 void TimerISRInit() { //PREINIT TIMER B VALUES
 	TCCR1B |= (1<<WGM12);
-	OCR1AH = 0xFF;
-	OCR1AL = 0xFF;
-	TCCR1B |= ((1<<CS11)|(1<<CS10));
+	OCR1AH = 0b00010110;
+	OCR1AL = 0b11100011;
+	TCCR1B |= ((1<<CS12)|(1<<CS10));
 	sei();
 }
 
@@ -37,6 +37,7 @@ ISR (TIMER1_COMPA_vect) {
 	else {
 		lcdLog("Timer finished");
 		if (CurrentPhase < 99) { //Mov to next program phase if timer finished
+			clearOutputPort(); //clears output port state
 			DoWashing(CurrentPhase + 1);
 		} else {
 			lcdLog("Program finished");

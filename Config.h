@@ -31,8 +31,8 @@
 #define BTN_POWER 0		//BUTTON INPUT 1 - вход кнопки 1
 #define BTN_CANCEL 1	//BUTTON INPUT 2 - вход кнопки 2
 
-#define IN_ISB -1		//INPUT FOR DOOR WASHER SWITCH - вход измерителя ополаскивателя в двери TODO define
-#define IN_DOOR -1		//INPUT FOR DOOR OPEN SWITCH - вход для датчика двери TODO define
+#define IN_ISB 7		//INPUT FOR DOOR WASHER SWITCH - вход измерителя ополаскивателя в двери TODO define
+#define IN_DOOR 8		//INPUT FOR DOOR OPEN SWITCH - вход для датчика двери TODO define
 
 
 /*--------------------------------------------------------------------*/
@@ -40,19 +40,8 @@
 #define AQS_ACTIVE_STATE 0 //0 is aqs port active state
 #define FM_ACTIVE_STATE 0
 #define ISS_ACTIVE_STATE 0
-
 #define ISB_ACTIVE_STATE 0
 #define DOOR_ACTIVE_STATE 0
-
-
-/*--------------------------------------------------------------------*/
-
-#define BTN_POWER_ACTIVE (PIN_IN>>BTN_POWER&0x01)==BTN_POWER_ACTIVE_STATE //Define POWER KEY is pressed (when set to 0)
-#define AQS_TRIGGERED (PIN_IN>>IN_IAQS&0x01)==AQS_ACTIVE_STATE
-#define FM_FILLED (PIN_IN>>IN_FM&0x01)==FM_ACTIVE_STATE //Define IAQS is triggered (when set to 0)
-#define ISS_EMPTY (PIN_IN>>IN_ISS&0x01)==ISS_ACTIVE_STATE //Define IAQS is triggered (when set to 0)
-
-//#define HATCH_OPENED
 
 /*--------------------------------------------------------------------*/
 
