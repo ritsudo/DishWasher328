@@ -105,6 +105,12 @@
     <Compile Include="DishWasher328.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="FluidMeter\Fluid.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="FluidMeter\Fluid.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="LCD\lcd1602.c">
       <SubType>compile</SubType>
     </Compile>
@@ -141,6 +147,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="LCD" />
+    <Folder Include="FluidMeter" />
     <Folder Include="Thermo" />
     <Folder Include="Programs" />
     <Folder Include="Timer" />

@@ -14,6 +14,7 @@ void initialize() {
 	LCD_init();
 	TimerISRInit();
 	InitThermometer();
+	InitFluidMeter();
 	lcdLog(MACHINE_NAME);
 }
 

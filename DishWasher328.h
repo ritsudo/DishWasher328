@@ -6,6 +6,7 @@
 #include "Timer/CountdownTimer.h"
 #include "Programs/MainCycle.h"
 #include "Thermo/ThermalCheck.h"
+#include "FluidMeter/Fluid.h"
 #include "Machinery.h"
 
 #define F_CPU 6000000

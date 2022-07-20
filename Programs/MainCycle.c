@@ -7,7 +7,7 @@ void DoWashing(unsigned int step) {
 			_delay_ms(200);
 			_delay_ms(200);
 			INLET_ENABLE;
-			TimerInit(30, 1); //INIT TIME WITH 60 SECONDS, NEXT PHASE IS 1
+			TimerInit(25, 1); //INIT TIME WITH 60 SECONDS, NEXT PHASE IS 1
 			break;
 		case 1:
 			PUMPH_ENABLE;
