@@ -18,7 +18,7 @@
 
 #define BTN_POWER_ACTIVE (PIN_IN>>BTN_POWER&0x01)==BTN_POWER_ACTIVE_STATE //Define POWER KEY is pressed (when set to 0)
 #define AQS_TRIGGERED (PIN_IN>>IN_IAQS&0x01)==AQS_ACTIVE_STATE
-#define FM_FILLED (PIN_IN>>IN_FM&0x01)==FM_ACTIVE_STATE //Define IAQS is triggered (when set to 0)
+#define FLUID_HOLD (PIN_IN>>IN_FM&0x01)==FM_ACTIVE_STATE //Define FM is triggered
 #define ISS_EMPTY (PIN_IN>>IN_ISS&0x01)==ISS_ACTIVE_STATE //Define ISS is triggered (when set to 0)
 #define ISB_EMPTY (PIN_IN>>IN_ISB&0x01)==ISB_ACTIVE_STATE //Define ISB is triggered (when set to 0)
 #define DOOR_OPENED (PIN_IN>>IN_DOOR&0x01)==DOOR_ACTIVE_STATE //Define IAQS is triggered (when set to 0)

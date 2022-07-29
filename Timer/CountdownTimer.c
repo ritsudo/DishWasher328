@@ -33,7 +33,7 @@ ISR (TIMER1_COMPA_vect) {
 	if (CountdownValue > 0) {
 		LogTime(); //log time if timer is still counting
 		
-		ShowFluidMeter(); //TEMPORARY - UPDATE FM VALUE
+//		ShowFluidMeter(); //TEMPORARY - UPDATE FM VALUE
 		
 		CountdownValue -= 1; //decrease time
 	}

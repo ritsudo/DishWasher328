@@ -26,13 +26,16 @@ void clearOutputPort() {
 	PORT_OUT = 0x00;
 }
 
+void aqsTriggered() {
+	procedureStop();
+	lcdLog("AQS TRIGGERED");
+	_delay_ms(100);
+}
+
 void procedureStop() {
 	TimerPause();
 	clearOutputPort();
 	lcdLog("STOP by user");
-	if (AQS_TRIGGERED) lcdLog("AQS TRIGGERED");
-	//if (HATCH_OPENED) lcdLog("DOOR IS OPENED");
-	_delay_ms(200); //200 ms delay to avoid reclick
 }
 
 void debugInputLog() {

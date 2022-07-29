@@ -38,7 +38,7 @@
 /*--------------------------------------------------------------------*/
 #define BTN_POWER_ACTIVE_STATE 0 //0 is button port active state
 #define AQS_ACTIVE_STATE 0 //0 is aqs port active state
-#define FM_ACTIVE_STATE 0
+#define FM_ACTIVE_STATE 1
 #define ISS_ACTIVE_STATE 0
 #define ISB_ACTIVE_STATE 0
 #define DOOR_ACTIVE_STATE 0

@@ -14,6 +14,7 @@
 void initialize();
 void errorNoSalt();
 void procedureStop();
+void aqsTriggered();
 void debugInputLog();
 void clearOutputPort();
 void debugADC();

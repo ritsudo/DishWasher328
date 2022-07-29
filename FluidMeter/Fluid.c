@@ -1,7 +1,7 @@
 #include "Fluid.h"
-#define FLUID_HOLD (PIN_IN>>IN_FM&0x01)==1
 
 unsigned int currentFluidCount = 0;
+unsigned char running = 0; //CURRENT MACHINE STATE 0 - STOPPED; 1 - RUNNING
 //PCINT ISR AS FLUID TICK
 
 ISR(PCINT1_vect)
@@ -12,11 +12,24 @@ ISR(PCINT1_vect)
 			 currentFluidCount += 1;
 		 }
 	 }
+ 	 if (BTN_POWER_ACTIVE) {
+ 		 _delay_ms(20);
+		  if (BTN_POWER_ACTIVE) {
+				if (running == 0) {
+					running = 1;
+					DoWashing(0);
+				} else {
+					running = 0;
+					procedureStop();	
+				}
+		  }
+ 	 }
  }
 
 void InitFluidMeter() {
 		sei();
 		PCICR |= (1<<1); // 1 - PCINT group
+		PCMSK1 |= (1<<0); // PCINT8
 		PCMSK1 |= (1<<2); // PCINT10
 }
 

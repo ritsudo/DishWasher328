@@ -5,7 +5,6 @@
 
 #include "DishWasher328.h"
 
-unsigned char running = 0; //CURRENT MACHINE STATE 0 - STOPPED; 1 - RUNNING
 
 
 int main(void)
@@ -17,22 +16,8 @@ int main(void)
 	
     while(1)
     {	
-//		debugInputLog();
-//		debugADC();
-		
- 		if (running == 1) {
- 			if (BTN_POWER_ACTIVE || AQS_TRIGGERED) {
-				 procedureStop();
-				 running = 0;
-			 }
- 		}
-		 
- 		else {
-			 if (BTN_POWER_ACTIVE) {
-				if (running == 0) running = 1;
-				 _delay_ms(50); //50ms delay to avoid reclick
-				 DoWashing(0);
-			 }
- 		}
+		if(AQS_TRIGGERED) {
+			aqsTriggered();
+		}
     }
 }
