@@ -2,9 +2,6 @@
 
 #include "CountdownTimer.h"
 
-unsigned int CountdownValue = 0; // текущее значение счетчика in seconds
-unsigned int CurrentPhase = 0; //текущая фаза программы
-
 //TODO TIMER
 
 void TimerISRInit() { //PREINIT TIMER B VALUES
@@ -31,10 +28,7 @@ void TimerStart() {
 
 ISR (TIMER1_COMPA_vect) {
 	if (CountdownValue > 0) {
-		LogTime(); //log time if timer is still counting
-		
-//		ShowFluidMeter(); //TEMPORARY - UPDATE FM VALUE
-		
+		debugFullLog(); //log time if timer is still counting
 		CountdownValue -= 1; //decrease time
 	}
 	else {
@@ -53,14 +47,4 @@ ISR (TIMER1_COMPA_vect) {
 void TimerPause() {
 	TIMSK1 &=~(1<<OCIE1A);
 //	lcdLog("Timer disabled");
-}
-
-void LogTime() {
-	char lcdString[] = "00:00";
-	lcdString[0] = 0x30 + (CountdownValue / 600);
-	lcdString[1] = 0x30 + ((CountdownValue % 600)/60);
-	lcdString[3] = 0x30 + ((CountdownValue-((CountdownValue/60)*60))/10);
-	lcdString[4] = 0x30 + ((CountdownValue-((CountdownValue/60)*60))%10);
-	
-	lcdLog(lcdString);
 }

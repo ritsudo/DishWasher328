@@ -38,6 +38,27 @@ void procedureStop() {
 	lcdLog("STOP by user");
 }
 
+void debugFullLog() {
+	char lcdVal[] = "F000 C0000 00:00";
+	adcValue = CheckTemperature();
+	
+	lcdVal[1] =   (currentFluidCount%1000)/100+0x30;
+	lcdVal[2] =   (currentFluidCount%100)/10+0x30;
+	lcdVal[3] =   currentFluidCount%10+0x30;
+	
+	lcdVal[6] =     adcValue/1000+0x30;
+	lcdVal[7] =   (adcValue%1000)/100+0x30;
+	lcdVal[8] =   (adcValue%100)/10+0x30;
+	lcdVal[9] =   adcValue%10+0x30;
+	
+	lcdVal[11] = 0x30 + (CountdownValue / 600);
+	lcdVal[12] = 0x30 + ((CountdownValue % 600)/60);
+	lcdVal[14] = 0x30 + ((CountdownValue-((CountdownValue/60)*60))/10);
+	lcdVal[15] = 0x30 + ((CountdownValue-((CountdownValue/60)*60))%10);
+	
+	lcdLog(lcdVal);
+}
+
 void debugInputLog() {
 	char pinin[] = "000000  ";
 	pinin[0] = 0x30 + (PIN_IN>>BTN_POWER & 0x01);
@@ -48,15 +69,4 @@ void debugInputLog() {
 	pinin[5] = 0x30 + (PIN_IN>>IN_ISS & 0x01);
 	lcdLog(pinin);
 	_delay_ms(200);
-}
-
-void debugADC() {
-	int adcValue = CheckTemperature();
-	char adcVal[] = "0000";
-	adcVal[0] =     adcValue/1000+0x30;
-	adcVal[1] =   (adcValue%1000)/100+0x30;
-	adcVal[2] =   (adcValue%100)/10+0x30;
-	adcVal[3] =   adcValue%10+0x30;
-	lcdLog(adcVal);
-	_delay_ms(50);
 }

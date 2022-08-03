@@ -2,6 +2,13 @@
 
 void DoWashing(unsigned int step) {
 	switch(step) {
+		
+/*
+-------------------------------------------------------------------
+		INFILL PHASE
+-------------------------------------------------------------------
+*/
+		
 		case 0:
 		_delay_ms(200);
 			DRAIN_ENABLE;
@@ -20,22 +27,35 @@ void DoWashing(unsigned int step) {
 			PUMPH_ENABLE;
 			_delay_ms(5);
 			lcdLog("3AJIBKA 2");
-			TimerInit(17, 3);
+			TimerInit(17, 10);
 			break;
-		case 3:
+			
+/*
+-------------------------------------------------------------------
+		MAIN PROGRAM PHASE
+-------------------------------------------------------------------
+*/
+			
+		case 10:
 			PUMPH_ENABLE;
 //			HEATER_ENABLE;
 			lcdLog("HACOC PABOTAET");
-			TimerInit(300, 4);
+			TimerInit(300, 11);
 			break;
-		case 4:
+		case 11:
 			DRAIN_ENABLE;
 			lcdLog("IDET SLIV");
-			TimerInit(30, 5);
+			TimerInit(30, 12);
 			break;
-		case 5:
+		case 12:
 			lcdLog("KONEC PROGRAMMY");
 			TimerInit(0, 100); // 100 - END 
 			break;
+			
+/*
+-------------------------------------------------------------------
+		100 - PROGRAM END
+-------------------------------------------------------------------
+*/
 	}
 }

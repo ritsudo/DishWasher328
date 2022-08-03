@@ -15,6 +15,5 @@
 
 void InitFluidMeter();
 void CountFluid(unsigned int requiredCount, unsigned int nextPhase);
-void ShowFluidMeter();
 
 #endif /* FLUID_H_ */

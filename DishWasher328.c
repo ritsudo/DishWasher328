@@ -5,6 +5,11 @@
 
 #include "DishWasher328.h"
 
+unsigned int CountdownValue = 0; // текущее значение счетчика in seconds
+unsigned int CurrentPhase = 0; //текущая фаза программы
+unsigned int currentFluidCount = 0; //FLUID METER COUNT 
+unsigned int adcValue; //CURRENT TEMPERATURE
+unsigned char running = 0; //CURRENT MACHINE STATE 0 - STOPPED; 1 - RUNNING
 
 
 int main(void)

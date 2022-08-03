@@ -15,9 +15,9 @@ void initialize();
 void errorNoSalt();
 void procedureStop();
 void aqsTriggered();
+void debugFullLog();
 void debugInputLog();
 void clearOutputPort();
-void debugADC();
 
 
 #endif /* MACHINERY_H_ */

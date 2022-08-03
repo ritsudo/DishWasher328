@@ -10,7 +10,5 @@ void TimerISRInit();
 void TimerInit(unsigned int TimeValue, unsigned int NextPhase);
 void TimerStart();
 void TimerPause();
-void LogTime();
-
 
 #endif /* COUNTDOWNTIMER_H_ */
