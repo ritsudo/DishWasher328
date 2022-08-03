@@ -15,6 +15,7 @@ void initialize() {
 	TimerISRInit();
 	InitThermometer();
 	InitFluidMeter();
+	adcValue = CheckTemperature();
 	lcdLog(MACHINE_NAME);
 }
 
@@ -26,9 +27,9 @@ void clearOutputPort() {
 	PORT_OUT = 0x00;
 }
 
-void aqsTriggered() {
+void error(char errText[]) {
 	procedureStop();
-	lcdLog("AQS TRIGGERED");
+	lcdLog(errText);
 	_delay_ms(100);
 }
 

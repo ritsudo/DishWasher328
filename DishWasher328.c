@@ -22,7 +22,11 @@ int main(void)
     while(1)
     {	
 		if(AQS_TRIGGERED) {
-			aqsTriggered();
+			error("AQS TRIGGERED");
+		}
+		
+		if (adcValue < 5 || adcValue > 1020) {
+			error("MINTEMP ERR");
 		}
     }
 }
