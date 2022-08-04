@@ -38,9 +38,9 @@ void DoWashing(unsigned int step) {
 			
 		case 10:
 			PUMPH_ENABLE;
-//			HEATER_ENABLE;
+			HEATER_ENABLE;
 			lcdLog("HACOC PABOTAET");
-			TimerInit(300, 11);
+			TimerInit(900, 11); //15 MIN HEATER TEST
 			break;
 		case 11:
 			DRAIN_ENABLE;

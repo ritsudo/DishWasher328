@@ -1,4 +1,5 @@
 #include "ThermalCheck.h"
+#define K_TEMP 13
 
 void InitThermometer() {
 	ADCSRA |= (1<<ADEN)
@@ -11,4 +12,8 @@ unsigned int CheckTemperature() {
 	ADCSRA |= (1<<ADSC); 
 	while((ADCSRA & (1<<ADSC))); 
 	return (unsigned int) ADCW;
+}
+
+unsigned int getCelsiumTemperature() {
+	return (unsigned int) ((1024-adcValue)/K_TEMP);
 }

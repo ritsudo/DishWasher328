@@ -14,6 +14,7 @@
 
 void InitThermometer();
 unsigned int CheckTemperature();
+unsigned int getCelsiumTemperature();
 
 
 #endif /* THERMALCHECK_H_ */

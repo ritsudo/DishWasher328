@@ -40,17 +40,17 @@ void procedureStop() {
 }
 
 void debugFullLog() {
-	char lcdVal[] = "F000 C0000 00:00";
+	char lcdVal[] = "F000 00C   00:00";
 	adcValue = CheckTemperature();
 	
 	lcdVal[1] =   (currentFluidCount%1000)/100+0x30;
 	lcdVal[2] =   (currentFluidCount%100)/10+0x30;
 	lcdVal[3] =   currentFluidCount%10+0x30;
 	
-	lcdVal[6] =     adcValue/1000+0x30;
-	lcdVal[7] =   (adcValue%1000)/100+0x30;
-	lcdVal[8] =   (adcValue%100)/10+0x30;
-	lcdVal[9] =   adcValue%10+0x30;
+	unsigned int celsiumValue = getCelsiumTemperature();
+	
+	lcdVal[5] =   (celsiumValue%100)/10+0x30;
+	lcdVal[6] =   celsiumValue%10+0x30;
 	
 	lcdVal[11] = 0x30 + (CountdownValue / 600);
 	lcdVal[12] = 0x30 + ((CountdownValue % 600)/60);

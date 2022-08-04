@@ -8,7 +8,13 @@
 unsigned int CountdownValue = 0; // текущее значение счетчика in seconds
 unsigned int CurrentPhase = 0; //текущая фаза программы
 unsigned int currentFluidCount = 0; //FLUID METER COUNT 
+
+// HEATER SECTION
 unsigned int adcValue; //CURRENT TEMPERATURE
+unsigned int requiredTemperature = 0; //REQUIRED TEMPERATURE FOR HEATING
+unsigned char preHeated = 0; //SET IF HEATER'S READY
+//
+
 unsigned char running = 0; //CURRENT MACHINE STATE 0 - STOPPED; 1 - RUNNING
 
 
@@ -25,7 +31,7 @@ int main(void)
 			error("AQS TRIGGERED");
 		}
 		
-		if (adcValue < 5 || adcValue > 1020) {
+		if (adcValue < 20 || adcValue > 1020) {
 			error("MINTEMP ERR");
 		}
     }
