@@ -1,4 +1,5 @@
 #include "ThermalCheck.h"
+#define B_TEMP 4
 #define K_TEMP 13
 
 void InitThermometer() {
@@ -15,5 +16,5 @@ unsigned int CheckTemperature() {
 }
 
 unsigned int getCelsiumTemperature() {
-	return (unsigned int) ((1024-adcValue)/K_TEMP);
+	return (unsigned int) (((1024-adcValue)/K_TEMP)+B_TEMP);
 }

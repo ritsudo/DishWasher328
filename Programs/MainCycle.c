@@ -20,7 +20,7 @@ void DoWashing(unsigned int step) {
 			INLET_ENABLE;
 			_delay_ms(5);
 			lcdLog("3AJIBKA 1");
-			TimerInit(30, 2); //INIT TIME WITH 60 SECONDS, NEXT PHASE IS 1
+			TimerInit(40, 2); //INIT TIME WITH 60 SECONDS, NEXT PHASE IS 1
 			break;
 		case 2:
 			INLET_ENABLE;

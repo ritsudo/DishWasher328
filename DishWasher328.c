@@ -31,8 +31,26 @@ int main(void)
 			error("AQS TRIGGERED");
 		}
 		
-		if (adcValue < 20 || adcValue > 1020) {
-			error("MINTEMP ERR");
+		if (adcValue < 300) { //300 FOR 60C TEMP
+			_delay_ms(1);
+			if (adcValue < 300) {
+				_delay_ms(10);
+				if (adcValue < 300) {
+					HEATER_DISABLE;
+				}
+			}
 		}
+		
+		if (adcValue < 10 || adcValue > 1020) {
+			_delay_ms(1);
+			if (adcValue < 10 || adcValue > 1020) {
+				_delay_ms(10);
+				if (adcValue < 10 || adcValue > 1020) {
+					error("MINTEMP ERR");
+				}
+			}
+		}
+		
+		
     }
 }
