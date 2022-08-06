@@ -19,9 +19,6 @@ unsigned int CurrentPhase;
 unsigned int currentFluidCount;
 
 unsigned int adcValue;
-unsigned int requiredTemperature;
-unsigned char preHeated;
-
 
 unsigned char running;
 

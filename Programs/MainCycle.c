@@ -24,7 +24,7 @@ void DoWashing(unsigned int step) {
 			break;
 		case 2:
 			INLET_ENABLE;
-			PUMPH_ENABLE;
+			PUMPL_ENABLE;
 			_delay_ms(5);
 			lcdLog("3AJIBKA 2");
 			TimerInit(17, 10);

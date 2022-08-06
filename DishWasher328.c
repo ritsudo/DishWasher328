@@ -1,7 +1,9 @@
-// Created by Kekovsky 07.2022
+// Created by Kekovsky 07.2022 - 08.2022
 
 //MAIN OUT: HEATER, DRAIN, TANK, DISPENSER, INLET, PUMPL, PUMPH (ENABLE/DISABLE)
 //LCD OUT: PORTB
+
+//#define INFILL_PARROTS 600 // MAX VALUE TO INFILL
 
 #include "DishWasher328.h"
 
@@ -10,9 +12,7 @@ unsigned int CurrentPhase = 0; //текущая фаза программы
 unsigned int currentFluidCount = 0; //FLUID METER COUNT 
 
 // HEATER SECTION
-unsigned int adcValue; //CURRENT TEMPERATURE
-unsigned int requiredTemperature = 0; //REQUIRED TEMPERATURE FOR HEATING
-unsigned char preHeated = 0; //SET IF HEATER'S READY
+unsigned int adcValue = 0; //CURRENT TEMPERATURE
 //
 
 unsigned char running = 0; //CURRENT MACHINE STATE 0 - STOPPED; 1 - RUNNING
@@ -27,14 +27,18 @@ int main(void)
 	
     while(1)
     {	
+		
+		
 		if(AQS_TRIGGERED) {
 			error("AQS TRIGGERED");
 		}
 		
 		if (adcValue < 300) { //300 FOR 60C TEMP
 			_delay_ms(1);
+			adcValue = CheckTemperature();
 			if (adcValue < 300) {
 				_delay_ms(10);
+				adcValue = CheckTemperature();
 				if (adcValue < 300) {
 					HEATER_DISABLE;
 				}
@@ -43,8 +47,10 @@ int main(void)
 		
 		if (adcValue < 10 || adcValue > 1020) {
 			_delay_ms(1);
+			adcValue = CheckTemperature();
 			if (adcValue < 10 || adcValue > 1020) {
 				_delay_ms(10);
+				adcValue = CheckTemperature();
 				if (adcValue < 10 || adcValue > 1020) {
 					error("MINTEMP ERR");
 				}
