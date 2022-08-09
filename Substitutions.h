@@ -14,6 +14,7 @@
 #define PUMPH_ENABLE PORT_OUT|=(1<<O_PUMPH)					//ENABLE PUMPH - включение ЦН (высокая скорость)
 
 #define HEATER_DISABLE PORT_OUT&=~(1<<O_HEATER)				//DISABLE HEATER - выключение ТЭНа
+#define DISPENSER_DISABLE PORT_OUT&=~(1<<O_DISPENSER)		//DISABLE DISPENSER - выключение дозатора
 
 /*--------------------------------------------------------------------*/
 

@@ -45,13 +45,13 @@ int main(void)
 			}
 		}
 		
-		if (adcValue < 10 || adcValue > 1020) {
+		if (adcValue < 100 || adcValue > 960) { // IF T > 80 OR T < 5 C
 			_delay_ms(1);
 			adcValue = CheckTemperature();
-			if (adcValue < 10 || adcValue > 1020) {
+			if (adcValue < 100 || adcValue > 960) {
 				_delay_ms(10);
 				adcValue = CheckTemperature();
-				if (adcValue < 10 || adcValue > 1020) {
+				if (adcValue < 100 || adcValue > 960) {
 					error("MINTEMP ERR");
 				}
 			}

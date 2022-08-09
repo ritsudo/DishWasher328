@@ -15,6 +15,7 @@ ISR(PCINT1_vect)
  	 if (BTN_POWER_ACTIVE) {
  		 _delay_ms(20);
 		  if (BTN_POWER_ACTIVE) {
+			  _delay_ms(100);
 				if (running == 0) {
 					running = 1;
 					DoWashing(0);
